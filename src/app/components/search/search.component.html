@@ -1,15 +1,15 @@
 <div class="container top-30">
   <div class="row">
     <div class="col-md-3">
-      <label for="query">Buscador de artistas</label>
-      <input [(ngModel)]="query" type="text" name="query" placeholder="Buscar por artista..." class="form-control" (keyup)="searchArtist()">
+      <label for="query">Search Artist</label>
+      <input [(ngModel)]="query" type="text" name="query" placeholder="Search by artist..." class="form-control" (keyup)="searchArtist()">
       <hr>
     </div>
-    <div class="col-md-9">      
+    <div class="col-md-9">
       <div class="row">
-        <div class="col-md-3 text-center puntero" 
-          [routerLink]="['/artista',artist.id]"
-          *ngFor="let artist of spotifyService.artists">
+        <div class="col-md-3 text-center puntero"
+          [routerLink]="['/artist',artist.id]"
+          *ngFor="let artist of artist">
           <img [src]="artist.images | noPicture" class="img-fluid img-thumbnail">
           <p>
             {{artist.name}}
@@ -17,6 +17,6 @@
           <hr>
         </div>
       </div>
-    </div>    
+    </div>
   </div>
 </div>

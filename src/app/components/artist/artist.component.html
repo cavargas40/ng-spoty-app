@@ -1,26 +1,26 @@
 <div *ngIf="artist" class="container main-container animated fadeIn fast">
-
   <div class="row">
     <div class="col-md-3 text-center">
-      <img [src]="artist.images | noPicture" class="img-thumbnail img-circle">
-      <br>
+      <img [src]="artist.images | noPicture" class="img-thumbnail img-circle" />
+      <br />
     </div>
     <div class="col-md-9">
       <h3>
-        {{artist.name}}
-        <small>Popularidad {{artist.popularity}}</small>
+        {{ artist.name }}
+        <small>Popularity {{ artist.popularity }}</small>
       </h3>
-      <hr>
-      <a [href]="artist.external_urls?.spotify" class="btn btn-outline-success">Ver página</a>
-      <a [routerLink]="['/buscar']" class="btn btn-outline-danger">Regresar</a>
+      <hr />
+      <a [href]="artist.external_urls?.spotify" class="btn btn-outline-success"
+        >See Website</a
+      >
+      <a [routerLink]="['/search']" class="btn btn-outline-danger">Return</a>
     </div>
   </div>
-
 </div>
 
 <div *ngIf="tracks" class="container">
-  <h3>Top de {{ artist.name }}</h3>
-  <hr>
+  <h3>Top of {{ artist.name }}</h3>
+  <hr />
 
   <div class="row">
     <div class="col-md-12">
@@ -29,28 +29,29 @@
           <thead>
             <tr>
               <th>#</th>
-              <th>Foto</th>
-              <th>Cancion</th>
-              <th>Popularidad</th>
+              <th>Picture</th>
+              <th>Song</th>
+              <th>Popularity</th>
               <th>Preview</th>
             </tr>
           </thead>
           <tbody>
             <tr *ngFor="let track of tracks; let i = index">
-              <td>{{i + 1}}</td>
+              <td>{{ i + 1 }}</td>
               <td>
-                <img [src]="track.album?.images | noPicture" class="img-fluid img-50">
+                <img
+                  [src]="track.album?.images | noPicture"
+                  class="img-fluid img-50"
+                />
               </td>
               <td>
-                {{track.name}}
+                {{ track.name }}
               </td>
-              <td>
-                {{track.popularity}}%
-              </td>
+              <td>{{ track.popularity }}%</td>
               <td>
                 <audio controls>
-                  <source [src]="track.preview_url">
-                  Tu navegador es muy viejo
+                  <source [src]="track.preview_url" />
+                  Your browser is not supported
                 </audio>
                 <!--<iframe [src]="track.uri | domseguro:'https://embed.spotify.com/?uri='" width="300" height="80" frameborder="0"
                   allowtransparency="true"></iframe>-->
